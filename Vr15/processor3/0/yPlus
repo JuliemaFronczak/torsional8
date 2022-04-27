@@ -1,0 +1,111 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v2012                                 |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       volScalarField;
+    location    "0";
+    object      yPlus;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [0 0 0 0 0 0 0];
+
+
+internalField   uniform 0;
+
+boundaryField
+{
+    frontback
+    {
+        type            empty;
+    }
+    topbottom
+    {
+        type            calculated;
+        value           uniform 0;
+    }
+    outlet
+    {
+        type            calculated;
+        value           uniform 0;
+    }
+    inlet
+    {
+        type            calculated;
+        value           nonuniform List<scalar> 0();
+    }
+    walls
+    {
+        type            calculated;
+        value           nonuniform List<scalar> 
+45
+(
+9.22976
+10.6476
+10.5204
+9.22252
+10.0024
+9.68246
+9.38026
+10.0416
+8.89447
+9.68246
+9.13556
+9.74167
+9.68246
+9.4157
+9.11437
+10.7794
+9.43892
+9.68246
+9.63143
+8.4715
+11.5042
+9.86451
+10.3704
+9.25462
+10.0335
+9.57371
+11.0825
+9.0459
+10.1642
+10.2739
+9.14018
+9.68246
+9.79238
+9.77105
+9.42361
+9.58841
+9.96768
+9.36286
+9.68246
+9.7465
+8.61634
+8.56703
+6.83299
+7.38295
+7.21699
+)
+;
+    }
+    procBoundary3to1
+    {
+        type            processor;
+        value           uniform 0;
+    }
+    procBoundary3to2
+    {
+        type            processor;
+        value           uniform 0;
+    }
+}
+
+
+// ************************************************************************* //
